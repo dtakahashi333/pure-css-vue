@@ -18,6 +18,10 @@ const props = defineProps({
     type: [Boolean, String],
     default: false,
   },
+  size: {
+    type: String,
+    default: "",
+  },
 });
 // https://vuejs.org/guide/essentials/class-and-style
 const classObject = reactive({
@@ -27,7 +31,11 @@ const classObject = reactive({
   "button-error": props.color === "error",
   "button-warning": props.color === "warning",
   "button-secondary": props.color === "secondary",
-  "button-rounded": props.rounded
+  "button-rounded": props.rounded,
+  "button-xsmall": props.size == "xsmall",
+  "button-small": props.size == "small",
+  "button-large": props.size == "large",
+  "button-xlarge": props.size == "xlarge",
 });
 </script>
 
@@ -72,5 +80,21 @@ const classObject = reactive({
 
 .button-rounded {
   border-radius: 4px;
+}
+
+.button-xsmall {
+  font-size: 70%;
+}
+
+.button-small {
+  font-size: 85%;
+}
+
+.button-large {
+  font-size: 110%;
+}
+
+.button-xlarge {
+  font-size: 125%;
 }
 </style>
