@@ -1,91 +1,54 @@
 <script setup>
-import PureButton from "./components/PureButton.vue";
-import PureButtonGroup from "./components/PureButtonGroup.vue";
-const hello = () => {
-  alert("Hello");
-};
+import { RouterLink, RouterView } from "vue-router";
+import PureMenu from "./components/PureMenu.vue";
+import PureMenuItem from "./components/PureMenuItem.vue";
 </script>
 
 <template>
-  <main>
-    <div class="content">
-      <section>
-        <h2 class="content-subhead">Default Button</h2>
-        <PureButton v-on:click="hello">A Pure Button</PureButton>
+  <div class="container">
+    <nav class="sidenav">
+      <section class="pure-menu">
+        <RouterLink :to="{ name: 'home' }" class="pure-menu-heading"
+          >PURE</RouterLink
+        >
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            <RouterLink :to="{ name: 'buttons' }" class="pure-menu-link"
+              >Buttons</RouterLink
+            >
+          </li>
+          <li class="pure-menu-item">
+            <RouterLink :to="{ name: 'forms' }" class="pure-menu-link"
+              >Forms</RouterLink
+            >
+          </li>
+        </ul>
       </section>
-      <section>
-        <h2 class="content-subhead">Disabled Button</h2>
-        <PureButton disabled>A Disabled Button</PureButton>
-      </section>
-      <section>
-        <h2 class="content-subhead">Active Button</h2>
-        <PureButton active>An Active Button</PureButton>
-      </section>
-      <section>
-        <h2 class="content-subhead">Primary Button</h2>
-        <PureButton color="primary">A Primary Button</PureButton>
-      </section>
-      <section>
-        <h3 class="content-subhead">Colored Buttons</h3>
-        <div>
-          <PureButton color="success">Buccess Button</PureButton>
-          <PureButton color="error" style="margin-left: 8px"
-            >Buccess Button</PureButton
-          >
-          <PureButton color="warning" style="margin-left: 8px"
-            >Buccess Button</PureButton
-          >
-          <PureButton color="secondary" style="margin-left: 8px"
-            >Buccess Button</PureButton
-          >
-        </div>
-      </section>
-      <section>
-        <h3 class="content-subhead">Colored Buttons with Rounded Corners</h3>
-        <div>
-          <PureButton color="success" rounded>Buccess Button</PureButton>
-          <PureButton color="error" rounded style="margin-left: 8px"
-            >Buccess Button</PureButton
-          >
-          <PureButton color="warning" rounded style="margin-left: 8px"
-            >Buccess Button</PureButton
-          >
-          <PureButton color="secondary" rounded style="margin-left: 8px"
-            >Buccess Button</PureButton
-          >
-        </div>
-      </section>
-      <section>
-        <h3 class="content-subhead">Colored Buttons with Different Sizes</h3>
-        <div>
-          <PureButton size="xsmall">Extra Small Button</PureButton>
-          <PureButton size="small" style="margin-left: 8px"
-            >Small Button</PureButton
-          >
-          <PureButton style="margin-left: 8px">Regular Button</PureButton>
-          <PureButton size="large" style="margin-left: 8px"
-            >Large Button</PureButton
-          >
-          <PureButton size="xlarge" style="margin-left: 8px"
-            >Extra Large Button</PureButton
-          >
-        </div>
-      </section>
-      <section style="padding-bottom: 32px;">
-        <h2 class="content-subhead">Button Groups</h2>
-        <div>
-          <PureButtonGroup>
-            <PureButton>A Pure Button 1</PureButton>
-            <PureButton>A Pure Button 2</PureButton>
-            <PureButton active>An Active Button</PureButton>
-          </PureButtonGroup>
-        </div>
-      </section>
-    </div>
-  </main>
+    </nav>
+    <main>
+      <RouterView />
+    </main>
+  </div>
 </template>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  width: 100%;
+  height: 100%;
+}
+
+.sidenav {
+  width: 150px;
+  height: 100%;
+}
+</style>
+
+<style>
 .content {
   width: 90%;
   max-width: 1280px;
