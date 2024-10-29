@@ -1,29 +1,34 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { RouterView } from "vue-router";
 import PureMenu from "./components/PureMenu.vue";
+import MenuItem from "./components/MenuItem.js";
 import PureMenuItem from "./components/PureMenuItem.vue";
+import PureMenuHeading from "./components/PureMenuHeading.vue";
+
+const menuHeading = new MenuItem("PURE", { name: "home" }, true);
+const menuItems = [
+  new MenuItem("Buttons", { name: "buttons" }, true),
+  new MenuItem("Forms", { name: "forms" }, true),
+];
 </script>
 
 <template>
   <div class="container">
     <nav class="sidenav">
-      <section class="pure-menu">
-        <RouterLink :to="{ name: 'home' }" class="pure-menu-heading"
-          >PURE</RouterLink
-        >
-        <ul class="pure-menu-list">
-          <li class="pure-menu-item">
-            <RouterLink :to="{ name: 'buttons' }" class="pure-menu-link"
-              >Buttons</RouterLink
-            >
-          </li>
-          <li class="pure-menu-item">
-            <RouterLink :to="{ name: 'forms' }" class="pure-menu-link"
-              >Forms</RouterLink
-            >
-          </li>
-        </ul>
-      </section>
+      <PureMenu>
+        <heading>
+          <PureMenuHeading :useVueRouter="true" :link="{ name: 'home' }"
+            >PURE</PureMenuHeading
+          >
+        </heading>
+        <PureMenuItem :useVueRouter="true" :link="{ name: 'buttons' }">
+          Buttons
+        </PureMenuItem>
+        <PureMenuItem :useVueRouter="true" :link="{ name: 'forms' }">
+          Forms
+        </PureMenuItem>
+      </PureMenu>
+      <!-- <PureMenu :menuHeading="menuHeading" :menuItems="menuItems" /> -->
     </nav>
     <main>
       <RouterView />

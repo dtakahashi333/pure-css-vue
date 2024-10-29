@@ -43,7 +43,7 @@ const classObject = reactive({
   <button
     class="pure-button"
     v-bind:class="classObject"
-    v-bind:disabled="props.disabled"
+    v-bind:disabled="disabled"
   >
     <slot></slot>
   </button>
