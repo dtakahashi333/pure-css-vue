@@ -8,11 +8,25 @@ const props = defineProps({
     type: [String, Object],
     default: "",
   },
+  selected: {
+    type: [Boolean, String],
+    default: false,
+  },
+  disabled: {
+    type: [Boolean, String],
+    default: false,
+  },
 });
 </script>
 
 <template>
-  <li class="pure-menu-item">
+  <li
+    class="pure-menu-item"
+    v-bind:class="{
+      'pure-menu-selected': selected,
+      'pure-menu-disabled': disabled,
+    }"
+  >
     <template v-if="useVueRouter">
       <RouterLink v-bind:to="link" class="pure-menu-link">
         <slot></slot>

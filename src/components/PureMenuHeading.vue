@@ -12,15 +12,22 @@ const props = defineProps({
 </script>
 
 <template>
-  <template v-if="useVueRouter">
-    <RouterLink v-bind:to="link" class="pure-menu-heading">
-      <slot></slot>
-    </RouterLink>
+  <template v-if="link">
+    <template v-if="useVueRouter">
+      <RouterLink v-bind:to="link" class="pure-menu-heading pure-menu-link">
+        <slot></slot>
+      </RouterLink>
+    </template>
+    <template v-else>
+      <a v-bind:href="link" class="pure-menu-heading pure-menu-link">
+        <slot></slot>
+      </a>
+    </template>
   </template>
   <template v-else>
-    <a v-bind:href="link" class="pure-menu-heading">
+    <span class="pure-menu-heading">
       <slot></slot>
-    </a>
+    </span>
   </template>
 </template>
 

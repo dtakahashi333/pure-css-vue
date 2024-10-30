@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="container">
+  <div class="content">
     <div>
       <h1 class="title">Vue Pure.CSS</h1>
       <p class="welcome">Vue Components with Pure.CSS Styling</p>

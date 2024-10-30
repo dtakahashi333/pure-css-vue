@@ -4,6 +4,7 @@ import PureMenu from "./components/PureMenu.vue";
 import MenuItem from "./components/MenuItem.js";
 import PureMenuItem from "./components/PureMenuItem.vue";
 import PureMenuHeading from "./components/PureMenuHeading.vue";
+import PureMenuList from "./components/PureMenuList.vue";
 
 const menuHeading = new MenuItem("PURE", { name: "home" }, true);
 const menuItems = [
@@ -16,17 +17,20 @@ const menuItems = [
   <div class="container">
     <nav class="sidenav">
       <PureMenu>
-        <heading>
-          <PureMenuHeading :useVueRouter="true" :link="{ name: 'home' }"
-            >PURE</PureMenuHeading
-          >
-        </heading>
-        <PureMenuItem :useVueRouter="true" :link="{ name: 'buttons' }">
-          Buttons
-        </PureMenuItem>
-        <PureMenuItem :useVueRouter="true" :link="{ name: 'forms' }">
-          Forms
-        </PureMenuItem>
+        <PureMenuHeading :useVueRouter="true" :link="{ name: 'home' }"
+          >Pure</PureMenuHeading
+        >
+        <PureMenuList>
+          <PureMenuItem :useVueRouter="true" :link="{ name: 'buttons' }">
+            Buttons
+          </PureMenuItem>
+          <PureMenuItem :useVueRouter="true" :link="{ name: 'forms' }">
+            Forms
+          </PureMenuItem>
+          <PureMenuItem :useVueRouter="true" :link="{ name: 'menus' }">
+            Menus
+          </PureMenuItem>
+        </PureMenuList>
       </PureMenu>
       <!-- <PureMenu :menuHeading="menuHeading" :menuItems="menuItems" /> -->
     </nav>

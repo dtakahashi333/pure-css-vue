@@ -8,10 +8,12 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "./HomeView.vue";
 import ButtonsView from "./ButtonsView.vue";
 import FormsView from "./FormsView.vue";
+import MenusView from "./MenusView.vue";
 
 const routes = [
   { path: "/buttons", name: "buttons", component: ButtonsView },
   { path: "/forms", name: "forms", component: FormsView },
+  { path: "/menus", name: "menus", component: MenusView},
   { path: "/", name: "home", component: HomeView },
 ];
 const router = createRouter({
