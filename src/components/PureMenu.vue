@@ -14,11 +14,35 @@ const props = defineProps({
     type: [Boolean, String],
     default: false,
   },
+  vertical: {
+    type: [Boolean, String],
+    default: true,
+  },
+  restrictWidth: {
+    type: String,
+    default: "",
+  },
+  restrictHeight: {
+    type: String,
+    default: "",
+  },
+  scrollable: {
+    type: [Boolean, String],
+    default: false,
+  },
 });
 </script>
 
 <template>
-  <div class="pure-menu" v-bind:class="{ 'pure-menu-horizontal': horizontal }">
+  <div
+    class="pure-menu"
+    v-bind:class="{
+      'pure-menu-horizontal': horizontal,
+      'custom-restricted-width': restrictWidth,
+      'custom-restricted-height': restrictHeight,
+      'pure-menu-scrollable': scrollable,
+    }"
+  >
     <template v-if="menuHeading || menuItems">
       <template v-if="menuHeading">
         <template v-if="menuHeading.useVueRouter">
@@ -55,4 +79,11 @@ const props = defineProps({
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.custom-restricted-width {
+  width: v-bind(restrictWidth);
+}
+.custom-restricted-height {
+  height: v-bind(restrictHeight);
+}
+</style>

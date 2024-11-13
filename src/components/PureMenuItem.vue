@@ -6,7 +6,7 @@ const props = defineProps({
   },
   link: {
     type: [String, Object],
-    default: "",
+    default: "#/", // https://stackoverflow.com/questions/3252730/how-can-i-prevent-a-click-on-a-link-from-jumping-to-top-of-page
   },
   selected: {
     type: [Boolean, String],
